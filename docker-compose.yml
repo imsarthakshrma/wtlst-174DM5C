@@ -1,0 +1,25 @@
+# version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+
+  app:
+    image: node:23
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: "postgresql://neondb_owner:tnZv8LMkPW5f@ep-super-rice-a15mkwig-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
+    command: bash -c "npm install && npm run dev"
