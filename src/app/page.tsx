@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge"
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState } from 'react';
+import WaitlistButton from '@/components/waitlistButton';
+import WaitlistForm from '@/components/WaitlistForm';
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -32,7 +34,7 @@ export default function Home() {
             
             <nav className="ml-6 hidden sm:flex items-center space-x-6 text-sm font-light">
               <Link href="#features" className="transition-colors hover:text-foreground/80">Features</Link>
-              <Link href="#pricing" className="transition-colors hover:text-foreground/80">Pricing</Link>
+              {/* <Link href="#pricing" className="transition-colors hover:text-foreground/80">Pricing</Link> */}
             </nav>
           </div>
 
@@ -59,12 +61,13 @@ export default function Home() {
                 </>
               ) : ( */}
                 <>
-                  <Link href="/sign-in">
+                  {/* <Link href="/sign-in">
                     <Button variant="ghost" size="sm" className="font-light">Log in</Button>
-                  </Link>
-                  <Link href="/sign-up">
+                  </Link> */}
+                  {/* <Link href="/sign-up">
                     <Button size="sm" className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0 font-lexend">Get Started</Button>
-                  </Link>
+                  </Link> */}
+                  <WaitlistButton />
                 </>
               {/* )} */}
             </nav>
@@ -93,13 +96,13 @@ export default function Home() {
                 >
                   Features
                 </Link>
-                <Link 
+                {/* <Link 
                   href="#pricing" 
                   className="transition-colors hover:text-foreground/80"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Pricing
-                </Link>
+                </Link> */}
               </nav>
               <div className="flex flex-col space-y-2">
                 {/* {isSignedIn ? (
@@ -183,15 +186,7 @@ export default function Home() {
               Transform your development workflow with Kroskod.AI, the AI-powered workspace that streamlines project management, collaboration, and team communication. Experience a smarter way to build software, where AI anticipates your needs and eliminates distractions.
             </p>
             <div className="space-x-4">
-              <Link href="/sign-up">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0"
-                >
-                  <span className="font-bold">Get Started</span>
-                  {/* <ArrowRight className="ml-2 h-4 w-4" /> */}
-                </Button>
-              </Link>
+              <WaitlistForm />
             </div>
           </motion.div>
 
